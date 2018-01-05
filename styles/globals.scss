@@ -1,0 +1,51 @@
+/* 1. Colors */
+  $green: #7a972c;
+  $blue: #2d607c;
+  $yellow: #fdba1a;
+  $orange: #f09d06;
+  $purple: #997792;
+  $red: #ff6666;
+
+/* 2. Fonts */
+  $comforta: 'Comfortaa', cursive;
+
+/* 3. Mixins */
+  @mixin border-radius($radius) {-webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius;}
+
+/* 4. Global settings */  
+  * {font-family: $comforta; } 
+  .bg {background: $orange;}
+  .center {text-align: center;}
+  .circle {border-radius: 50%}
+  #error-msg {background: #ff6666; border: 0; border-radius: 100px; text-align: center;}
+  .loader {color: $red !important;}
+  .pin {position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+
+
+  /* 3a. Landing Page, Login and Register layout */
+    .main {background: $purple; height: 130px; width: 130px;}
+    .main-bg {height: 150px; width: 150px;}
+
+    .small {background: $yellow; height: 170px; width: 170px; right: -50px; top: -240px;}
+    .small-bg {height: 190px; width: 190px; right: -50px; top: -240px;}
+
+    .medium {background: $blue; height: 250px; width: 250px; right: -250px; top: -120px;}
+    .medium-bg {height: 270px; width: 270px; right: -250px; top: -120px;}
+
+    .big {background: $green; height: 300px; width: 300px; left: -250px; top: -170px;}
+    .big-bg {height: 320px; width: 320px; left: -250px; top: -170px;}
+
+    .reg {background: $blue; height: 35px; width: 150px; right: -390px; bottom: -95px; @include border-radius(10px)}
+    .reg-bg {height: 55px; width: 170px; right: -390px; bottom: -95px; @include border-radius(14px)}
+
+    .log {background: $green; height: 35px; width: 150px; left: -400px; top: -435px; @include border-radius(10px)}
+    .log-bg {height: 55px; width: 170px; left: -400px; top: -435px; @include border-radius(14px)}    
+
+    .login--active {background: $green;}
+    .register--active {background: $blue;}
+
+    .next-btn-text {color: #fff; font-size: 33px; line-height: 130px; text-align: center;}
+    .sign-btn-text {color: #fff; font-size: 17px; letter-spacing: 8px; line-height: 37px;}
+
+    form.form {height: 60px; left: -200px; top: -290px; width: 270px;}
+    input.field {background: #fff; border: 2px solid $orange; display: block; height: 25px; margin: 15px; padding: 0 5px; width: 250px; @include border-radius(6px)}
