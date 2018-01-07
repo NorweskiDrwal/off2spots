@@ -4,6 +4,7 @@
   $yellow: #fdba1a;
   $orange: #f09d06;
   $purple: #997792;
+  $grey: #968b84;
   $red: #ff6666;
 
 /* 2. Fonts */
@@ -15,6 +16,8 @@
 /* 4. Global settings */  
   * {font-family: $comforta; } 
   .bg {background: $orange;}
+  .bge {background: $orange; transition: all 0.4s ease;}
+  .body {background: #f5f5f5; height: 100vh; width: 100vw;}
   .center {text-align: center;}
   .circle {border-radius: 50%}
   #error-msg {background: #ff6666; border: 0; border-radius: 100px; text-align: center;}
@@ -23,8 +26,9 @@
 
 
   /* 3a. Landing Page, Login and Register layout */
-    .main {background: $purple; height: 130px; width: 130px;}
+    .main {background: $purple; border: 5px solid $orange; height: 140px; width: 140px;}
     .main-bg {height: 150px; width: 150px;}
+    .main-btn {background: transparent; font-size: 24px; height: 130px; letter-spacing: 3px; padding-left: 4px; text-transform: lowercase; width: 130px; }
 
     .small {background: $yellow; height: 170px; width: 170px; right: -50px; top: -240px;}
     .small-bg {height: 190px; width: 190px; right: -50px; top: -240px;}
@@ -49,3 +53,25 @@
 
     form.form {height: 60px; left: -200px; top: -290px; width: 270px;}
     input.field {background: #fff; border: 2px solid $orange; display: block; height: 25px; margin: 15px; padding: 0 5px; width: 250px; @include border-radius(6px)}
+
+  /* 3b. Profile and Setup Profile layout */
+
+    .main-main {background: $purple; border: 5px solid $orange; height: 140px; width: 140px; z-index: 100;}
+
+    .explodeBg {background: transparent; transform: scale(1.8); transition: all 0.4s ease; z-index: 0;}
+
+    #logout {background: $red; border: 3px solid $orange; bottom: 10px; height: 40px; left: 10px; position: absolute; width: 40px; transition: all 0.5s ease;}
+    #logout-btn {background: transparent; height: 34px; width: 34px;}
+    #logout:hover {transform: scale(1.2); transition: all 0.2s ease;}
+    
+    .menu {z-index: 10;}
+    .menu-item-axl {height: 1px; width: 1px; transition: all 0.4s ease;}
+    .menu-item {background: $orange; height: 60px; left: -57px; position: absolute; top: -57px; width: 60px; z-index: 10; transition: all 0.4s ease, background 0.2s ease;}
+    .menu-item:hover {transform: scale(1.1); transition: all 0.2s ease;}
+
+    #avatar-axl {transform: rotate(45deg)}
+    #hobbies-axl {transform: rotate(135deg)}
+    #location-axl {transform: rotate(225deg)}
+    #details-axl {transform: rotate(315deg)}
+
+    .explodeMenu {height: 90px; width: 90px; transition: all 0.4s ease}

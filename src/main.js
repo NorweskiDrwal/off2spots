@@ -9,6 +9,9 @@ import router from './router'
 import { store } from './store'
 import Error from './components/shared/Error'
 import Loader from './components/shared/Loader'
+import Details from './components/user/data/Details'
+import Location from './components/user/data/Location'
+import Hobbies from './components/user/data/Hobbies'
 
 import '../styles/globals.scss'
 
@@ -18,6 +21,9 @@ Vue.config.productionTip = false
 
 Vue.component('app-error', Error)
 Vue.component('app-loader', Loader)
+Vue.component('user-details', Details)
+Vue.component('user-location', Location)
+Vue.component('user-hobbies', Hobbies)
 
 /* eslint-disable no-new */
 new Vue({
@@ -33,6 +39,12 @@ new Vue({
       projectId: 'off-2-spots',
       storageBucket: 'off-2-spots.appspot.com',
       messagingSenderId: '246714110041'
+    })
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoLogin', user)
+        this.$store.dispatch('fetchUserData')
+      }
     })
   }
 })

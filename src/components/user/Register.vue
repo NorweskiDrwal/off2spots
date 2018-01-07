@@ -22,8 +22,8 @@
 
   <!-- -->
     <form class="form pin">
-      <input class="field" type="email" label="Mail" v-model="email" placeholder="email" required />
-      <input class="field" type="password" label="Password" v-model="password" placeholder="password" required />
+      <input class="field" id="email" name="email" type="email" label="Mail" v-model="email" placeholder="email" required />
+      <input class="field" id="password" name="password" type="password" label="Password" v-model="password" placeholder="password" required />
     </form>
   <!-- -->
 
@@ -45,34 +45,18 @@ export default {
       password: ''
     }
   },
-  watch: {
-    user (value) {
-      if (value !== null && value !== undefined) {
-        this.$router.push('/register/setup')
-      }
-    }
-  },
   methods: {
-    switchToLog () {
-      this.$router.push('/login')
-    },
-    onRegister () {
-      this.$store.dispatch('registerUser', {email: this.email, password: this.password})
-    },
-    onClose () {
-      this.$store.dispatch('clearError')
-    }
+    switchToLog () { this.$router.push('/login') },
+    onRegister () { this.$store.dispatch('registerUser', {email: this.email, password: this.password}) },
+    onClose () { this.$store.dispatch('clearError') }
   },
   computed: {
-    user () {
-      return this.$store.getters.user
-    },
-    error () {
-      return this.$store.getters.error
-    },
-    loading () {
-      return this.$store.getters.loading
-    }
+    user () { return this.$store.getters.user },
+    error () { return this.$store.getters.error },
+    loading () { return this.$store.getters.loading }
+  },
+  watch: {
+    user (value) { if (value !== null && value !== undefined) { this.$router.push('/profile/setup') } }
   }
 }
 </script>
