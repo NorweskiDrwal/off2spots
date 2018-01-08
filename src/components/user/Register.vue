@@ -45,11 +45,6 @@ export default {
       password: ''
     }
   },
-  methods: {
-    switchToLog () { this.$router.push('/login') },
-    onRegister () { this.$store.dispatch('registerUser', {email: this.email, password: this.password}) },
-    onClose () { this.$store.dispatch('clearError') }
-  },
   computed: {
     user () { return this.$store.getters.user },
     error () { return this.$store.getters.error },
@@ -57,6 +52,11 @@ export default {
   },
   watch: {
     user (value) { if (value !== null && value !== undefined) { this.$router.push('/profile/setup') } }
+  },
+  methods: {
+    switchToLog () { this.$router.push('/login') },
+    onRegister () { this.$store.dispatch('registerUser', {email: this.email, password: this.password}) },
+    onClose () { this.$store.dispatch('clearError') }
   }
 }
 </script>

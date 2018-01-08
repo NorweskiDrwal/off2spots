@@ -7,8 +7,8 @@
 <script>
   export default {
     data () {
-      return {
-      }
-    }
+      return {}
+    },
+    userIsAuthenticated () { return this.$store.getters.user !== null && this.$store.getters.user !== undefined }
   }
 </script>

@@ -23,11 +23,6 @@ export const store = new Vuex.Store({
       }
     ]
   },
-  getters: {
-    loading (state) { return state.loading },
-    error (state) { return state.error },
-    user (state) { return state.user }
-  },
   mutations: {
     setUser (state, payload) { state.user = payload },
     setLoading (state, payload) { state.loading = payload },
@@ -45,31 +40,21 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
-    registerUser ({commit, getters}, payload) {
+    registerUser ({commit}, payload) {
       commit('setLoading', true)
       commit('clearError')
       firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
-        .then(
-          user => {
-            commit('setLoading', false)
-            const newUser = {
-              id: user.uid
-            }
-            commit('setUser', newUser)
-            const placeholder = 'gs://off-2-spots.appspot.com/user.png'
-            const userData = {
-              avatar: placeholder,
-              nickname: 'Unknown',
-              firstName: 'Unknown',
-              lastName: 'Unknown',
-              age: 'Unknown',
-              city: 'Unknown',
-              distance: 'Unknown',
-              hobbies: 'Unknown'
-            }
-            firebase.database().ref('/users/' + user.uid).push(userData)
+        .then((user) => {
+          commit('setLoading', false)
+          const newUser = {
+            id: user.uid,
+            nickname: '',
+            firstName: '',
+            lastName: '',
+            age: ''
           }
-        )
+          commit('setUser', newUser)
+        })
         .catch(
           error => {
             commit('setLoading', false)
@@ -82,23 +67,22 @@ export const store = new Vuex.Store({
       commit('setLoading', true)
       commit('clearError')
       firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-        .then(
-          user => {
-            commit('setLoading', false)
-            const newUser = {
-              id: user.uid,
-              fbKeys: {}
-            }
-            commit('setUser', newUser)
+        .then((user) => {
+          commit('setLoading', false)
+          const newUser = {
+            id: user.uid,
+            nickname: '',
+            firstName: '',
+            lastName: '',
+            age: ''
           }
-        )
-        .catch(
-          error => {
-            commit('setLoading', false)
-            commit('setError', error)
-            console.log(error)
-          }
-        )
+          commit('setUser', newUser)
+        })
+        .catch((error) => {
+          commit('setLoading', false)
+          commit('setError', error)
+          console.log(error)
+        })
     },
     fetchUserData ({commit, getters}) {
       commit('setLoading', true)
@@ -129,5 +113,10 @@ export const store = new Vuex.Store({
       commit('setUser', null)
       commit('setLoading', false)
     }
+  },
+  getters: {
+    loading (state) { return state.loading },
+    error (state) { return state.error },
+    user (state) { return state.user }
   }
 })
