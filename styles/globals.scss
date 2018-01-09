@@ -13,8 +13,8 @@
 /* 3. Mixins */
   @mixin border-radius($radius) {-webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius;}
 
-/* 4. Global settings */  
-  * {font-family: $comforta; } 
+/* 4. Global settings */
+  * {font-family: $comforta; }
   .bg {background: $orange;}
   .bge {background: $orange; transition: all 0.4s ease;}
   .body {background: #f5f5f5; height: 100vh; width: 100vw;}
@@ -43,7 +43,7 @@
     .reg-bg {height: 55px; width: 170px; right: -390px; bottom: -95px; @include border-radius(14px)}
 
     .log {background: $green; height: 35px; width: 150px; left: -400px; top: -435px; @include border-radius(10px)}
-    .log-bg {height: 55px; width: 170px; left: -400px; top: -435px; @include border-radius(14px)}    
+    .log-bg {height: 55px; width: 170px; left: -400px; top: -435px; @include border-radius(14px)}
 
     .login--active {background: $green;}
     .register--active {background: $blue;}
@@ -60,18 +60,23 @@
 
     .explodeBg {background: transparent; transform: scale(1.8); transition: all 0.4s ease; z-index: 0;}
 
-    #logout {background: $red; border: 3px solid $orange; bottom: 10px; height: 40px; left: 10px; position: absolute; width: 40px; transition: all 0.5s ease;}
-    #logout-btn {background: transparent; height: 34px; width: 34px;}
-    #logout:hover {transform: scale(1.2); transition: all 0.2s ease;}
-    
-    .menu {z-index: 10;}
-    .menu-item-axl {height: 1px; width: 1px; transition: all 0.4s ease;}
-    .menu-item {background: $orange; height: 60px; left: -57px; position: absolute; top: -57px; width: 60px; z-index: 10; transition: all 0.4s ease, background 0.2s ease;}
-    .menu-item:hover {transform: scale(1.1); transition: all 0.2s ease;}
+    #menu-hamburger, #logout {border: 3px solid $orange; cursor: pointer; height: 45px; position: absolute; width: 45px; transition: all 0.5s ease;}
+    #menu-hamburger {background: $purple; left: 10px; top: 10px;}
+    #logout {background: $red; bottom: 10px; left: 10px;}
+    #logout-btn, #menu-hamburger-btn {background: transparent; height: 38px; width: 38px;}
+    #logout:hover, #menu-hamburger:hover {transform: scale(1.2); transition: all 0.2s ease;}
 
-    #avatar-axl {transform: rotate(45deg)}
-    #hobbies-axl {transform: rotate(135deg)}
-    #location-axl {transform: rotate(225deg)}
+    .control-panel {z-index: 10;}
+    .panel-item-axl {height: 1px; width: 1px; transition: all 0.4s ease;}
+    .panel-item {background: $orange; height: 60px; left: -57px; position: absolute; top: -57px; width: 60px; z-index: 10; transition: all 0.4s ease, background 0.2s ease;}
+    .panel-item:hover {transform: scale(1.1); transition: all 0.2s ease;}
+
+    #avatar-axl, #spots-axl {transform: rotate(45deg)}
+    #people-axl {transform: rotate(90deg)}
+    #hobbies-axl, #chat-axl {transform: rotate(135deg)}
+    #badges-axl {transform: rotate(180deg)}
+    #location-axl, #settings-axl {transform: rotate(225deg)}
+    #challenge-axl {transform: rotate(270deg)}
     #details-axl {transform: rotate(315deg)}
 
-    .explodeMenu {height: 90px; width: 90px; transition: all 0.4s ease}
+    .explodePanel {height: 90px; width: 90px; transition: all 0.4s ease}

@@ -6,7 +6,7 @@ import Register from '@/components/user/Register'
 import ProfileSetup from '@/components/user/ProfileSetup'
 import Profile from '@/components/user/Profile'
 
-import Guard from './guard'
+// import Guard from './guard'
 
 Vue.use(Router)
 
@@ -31,12 +31,13 @@ export default new Router({
       path: '/profile/setup',
       name: 'ProfileSetup',
       component: ProfileSetup
+      // beforeEnter: Guard
     },
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile,
-      beforeEnter: Guard
+      component: Profile
+      // beforeEnter: Guard
     }
   ],
   mode: 'history'

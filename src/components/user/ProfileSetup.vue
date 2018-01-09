@@ -2,49 +2,57 @@
   <v-app>
     <div class="body" @click="explode = false">
 
+    <!-- menu hamburger button -->
+      <div id="menu-hamburger" class="circle">
+        <v-btn id="menu-hamburger-btn" class="pin" fab dark flat title="Open menu" @click="onOpenDrawer">
+          <v-icon color="white" class="pin" medium>menu</v-icon>
+        </v-btn>
+      </div>
+    <!-- end menu hamburger button -->
+
     <!-- main -->
       <div class="main-bg bge circle pin" :class="{ explodeBg: explode }"></div>
       <v-progress-circular class="pin loader" indeterminate :size="171" :width="4" v-if="loading"></v-progress-circular>
       <div class="main-main circle pin" id="main-circle" :style="{ backgroundImage: 'linear-gradient(to bottom, rgba(153,119,146,0.6), rgba(153,119,146,0.6)), url(' + avatar + ')' }">
-        <v-btn class="circle pin main-btn" flat dark @mouseover="explode = true"> {{ btnText }} </v-btn>  
-      </div>    
+        <v-btn class="circle pin main-btn" flat dark @mouseover="explode = true"> {{ btnText }} </v-btn>
+      </div>
     <!-- end main -->
 
     <!-- setup menu -->
-      <div id="menu">
-      <!-- avatar -->  
-        <div class="menu-item-axl pin" :class="{ explodeMenu: explode }" id="avatar-axl">
-          <div class="menu-item circle" @mouseover="btnText = 'avatar'" @mouseout="btnText = ''">
+      <div id="control-panel">
+      <!-- avatar -->
+        <div class="panel-item-axl pin" :class="{ explodePanel: explode }" id="avatar-axl">
+          <div class="panel-item circle" @mouseover="btnText = 'avatar'" @mouseout="btnText = ''">
             <v-btn class="pin" id="avatar-btn" fab flat dark @click="onPickFile">
               <v-icon id="avatar-icn">face</v-icon>
             </v-btn>
-            <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="pickAvatar">            
+            <input type="file" style="display:none" ref="fileInput" accept="image/*" @change="pickAvatar">
           </div>
         </div>
       <!-- end avatar -->
       <!-- hobbies -->
-        <div class="menu-item-axl pin" :class="{ explodeMenu: explode }" id="hobbies-axl">
-          <div class="menu-item circle" @mouseover="btnText = 'hobbies'" @mouseout="btnText = ''">
+        <div class="panel-item-axl pin" :class="{ explodePanel: explode }" id="hobbies-axl">
+          <div class="panel-item circle" @mouseover="btnText = 'hobbies'" @mouseout="btnText = ''">
             <user-hobbies></user-hobbies>
           </div>
         </div>
       <!--end hobbies -->
       <!-- location -->
-        <div class="menu-item-axl pin" :class="{ explodeMenu: explode }" id="location-axl">
-          <div class="menu-item circle" @mouseover="btnText = 'location'" @mouseout="btnText = ''">
+        <div class="panel-item-axl pin" :class="{ explodePanel: explode }" id="location-axl">
+          <div class="panel-item circle" @mouseover="btnText = 'location'" @mouseout="btnText = ''">
             <user-location></user-location>
           </div>
         </div>
       <!-- end location -->
       <!-- details -->
-        <div class="menu-item-axl pin" :class="{ explodeMenu: explode }" id="details-axl">
-          <div class="menu-item circle" @mouseover="btnText = 'details'" @mouseout="btnText = ''">
+        <div class="panel-item-axl pin" :class="{ explodePanel: explode }" id="details-axl">
+          <div class="panel-item circle" @mouseover="btnText = 'details'" @mouseout="btnText = ''">
             <user-details></user-details>
           </div>
         </div>
-      <!-- end details -->      
+      <!-- end details -->
       </div>
-    <!-- end setup menu -->  
+    <!-- end setup menu -->
 
     <!-- logout -->
       <div id="logout" class="circle">
@@ -102,12 +110,12 @@ export default {
     background: $blue !important;
     height: 50px;
     width: 50px;
-    
+
     #avatar-icn {
       color: $orange;
       font-size: 45px;
       transform: rotate(-45deg);
-    }  
+    }
   }
 
 </style>

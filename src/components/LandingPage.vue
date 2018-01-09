@@ -1,19 +1,5 @@
 <template>
   <div>
-    <div class="small-bg bg circle pin"></div>
-    <div class="medium-bg bg circle pin"></div>
-    <div class="big-bg bg circle pin"></div>
-    <div class="main-bg bg circle pin"></div>
-    <div class="reg-bg bg pin" id="register-btn"></div>
-    <div class="log-bg bg pin" id="register-btn"></div>
-
-    <app-loader v-if="loading"></app-loader>
-
-    <div class="main circle pin" id="main-circle"></div>
-    <div class="medium circle pin" id="medium-circle"></div>
-    <div class="small circle pin" id="small-circle"></div>
-    <div class="big circle pin" id="big-circle"></div>
-
     <div class="log pin center" id="login-btn" style="cursor: pointer;" @click="switchToLog">
       <p class="sign-btn-text">SignIn</p>
     </div>
@@ -28,6 +14,7 @@ export default {
   name: 'LandingPage',
   data () {
     return {
+      userAuth: false
     }
   },
   methods: {
@@ -36,11 +23,6 @@ export default {
     },
     switchToReg () {
       this.$router.push('/register')
-    }
-  },
-  computed: {
-    loading () {
-      return this.$store.getters.loading
     }
   }
 }

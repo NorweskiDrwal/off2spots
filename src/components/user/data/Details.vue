@@ -15,13 +15,13 @@
                 <v-text-field id="nickname" name="nickname" label="Nickname" v-model="nickname" required></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field id="firstName" name="firstName" label="First name"></v-text-field>
+                <v-text-field id="firstName" name="firstName" label="First name" v-model="firstName"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field id="lastName" name="lastName" label="Last name"></v-text-field>
+                <v-text-field id="lastName" name="lastName" label="Last name" v-model="lastName"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6>
-                <v-text-field id="age" name="age" label="Age"></v-text-field>
+                <v-text-field id="age" name="age" label="Age" v-model="age"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -30,7 +30,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" flat @click.native="onSaveChanges">Save</v-btn>
+          <v-btn color="blue darken-1" flat :disabled="!nicknameAdded" @click.native="onAddUserDetails">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -39,15 +39,28 @@
 
 <script>
   export default {
-    props: ['details'],
     data () {
       return {
         dialog: false,
-        nickname: ''
+        nickname: '',
+        firstName: '',
+        lastName: '',
+        age: ''
       }
     },
+    computed: {
+      nicknameAdded () { return this.nickname !== '' }
+    },
     methods: {
-      onSaveChanges () {}
+      onAddUserDetails () {
+        const details = {
+          nickname: this.nickname,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          age: this.age
+        }
+        return this.$store.dispatch('addUserDetails', details)
+      }
     }
   }
 </script>
@@ -59,12 +72,12 @@
     background: $blue !important;
     height: 50px;
     width: 50px;
-    
+
     #details-icn {
       color: $orange;
       font-size: 45px;
       transform: rotate(-315deg);
-    }  
+    }
   }
 
 </style>

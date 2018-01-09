@@ -28,18 +28,10 @@ export const store = new Vuex.Store({
     setLoading (state, payload) { state.loading = payload },
     setError (state, payload) { state.error = payload },
     clearError (state) { state.error = null },
-    setLoadedDetails (state, payload) { state.loadedUserData = payload },
-    updateUser (state, payload) {
-      const userData = state.loadedUserData.find(userData => {
-        return userData.id === payload.id
-      })
-      if (payload.avatar) { userData.avatar = payload.avatar }
-      if (payload.nickname) { userData.nickname = payload.nickname }
-      if (payload.firstName) { userData.firstName = payload.firstName }
-      if (payload.lastName) { userData.lastName = payload.lastName }
-    }
+    addUserDetails (state, payload) { state.loadedUserData.push(payload) }
   },
   actions: {
+  // register user with firebase
     registerUser ({commit}, payload) {
       commit('setLoading', true)
       commit('clearError')
@@ -51,7 +43,10 @@ export const store = new Vuex.Store({
             nickname: '',
             firstName: '',
             lastName: '',
-            age: ''
+            age: '',
+            city: '',
+            distance: '',
+            hobbies: []
           }
           commit('setUser', newUser)
         })
@@ -63,6 +58,7 @@ export const store = new Vuex.Store({
           }
         )
     },
+  // login user with firebase
     loginUser ({commit}, payload) {
       commit('setLoading', true)
       commit('clearError')
@@ -74,7 +70,10 @@ export const store = new Vuex.Store({
             nickname: '',
             firstName: '',
             lastName: '',
-            age: ''
+            age: '',
+            city: '',
+            distance: '',
+            hobbies: []
           }
           commit('setUser', newUser)
         })
@@ -84,34 +83,30 @@ export const store = new Vuex.Store({
           console.log(error)
         })
     },
-    fetchUserData ({commit, getters}) {
-      commit('setLoading', true)
-      firebase.database().ref('/users/' + getters.user.uid).once('value')
-        .then(data => {
-          const dataPairs = data.val()
-          let swappedPairs = {}
-          for (let key in dataPairs) {
-            swappedPairs[dataPairs[key]] = key
-          }
-          const updatedUser = {
-            id: getters.user.id,
-            fbKeys: swappedPairs
-          }
-          commit('setLoading', false)
-          commit('setUser', updatedUser)
-        })
-        .catch(error => {
-          console.log(error)
-          commit('setLoading', false)
-        })
+    autoLogin ({commit}, payload) {
+      commit('setUser', {id: payload.uid})
     },
-    autoLogin ({commit}, payload) { commit('setUser', {id: payload.uid, fbKeys: {}}) },
+    addUserDetails ({commit}, payload) {
+      const userDetails = {
+        nickname: payload.nickname,
+        firstName: payload.firstName,
+        lastName: payload.lastName,
+        age: payload.age
+      }
+      firebase.database().ref('users').push(userDetails)
+        .then((data) => {
+          console.log(data)
+          commit('addUserDetails', userDetails)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      // reach out to firebase and store it
+    },
     clearError ({commit}) { commit('clearError') },
     logout ({commit}) {
-      commit('setLoading', true)
       firebase.auth().signOut()
       commit('setUser', null)
-      commit('setLoading', false)
     }
   },
   getters: {
