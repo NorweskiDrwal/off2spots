@@ -12,6 +12,7 @@ import Error from './components/shared/Error'
 import Loader from './components/shared/Loader'
 
 import Chat from './components/Chat'
+import Challenges from './components/challenge/Challenges'
 
 // user data imports
 import Details from './components/user/data/Details'
@@ -21,7 +22,9 @@ import Spots from './components/user/data/Spots'
 import People from './components/user/data/People'
 import Badges from './components/user/data/Badges'
 import Settings from './components/user/data/Settings'
-import Challenges from './components/user/data/Challenges'
+import UserChallenges from './components/user/data/UserChallenges'
+import Checks from './components/user/data/Checks'
+import Ranks from './components/user/data/Ranks'
 
 import '../styles/globals.scss'
 
@@ -33,6 +36,7 @@ Vue.component('app-error', Error)
 Vue.component('app-loader', Loader)
 
 Vue.component('app-chat', Chat)
+Vue.component('app-challenges', Challenges)
 
 // user data components
 Vue.component('user-details', Details)
@@ -42,7 +46,9 @@ Vue.component('user-spots', Spots)
 Vue.component('user-people', People)
 Vue.component('user-badges', Badges)
 Vue.component('user-settings', Settings)
-Vue.component('user-challenges', Challenges)
+Vue.component('user-challenges', UserChallenges)
+Vue.component('user-checks', Checks)
+Vue.component('user-ranks', Ranks)
 
 /* eslint-disable no-new */
 new Vue({

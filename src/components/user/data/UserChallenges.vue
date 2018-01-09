@@ -2,7 +2,7 @@
   <v-container>
     <v-dialog width="350px" v-model="dialog" id="challenge-dialog">
       <v-btn class="pin" id="challenge-btn" fab flat dark slot="activator">
-        <v-icon id="challenge-icn">play_arrow</v-icon>
+        <v-icon id="challenge-icn">fa-handshake-o </v-icon>
       </v-btn>
       <v-card>
       </v-card>
@@ -32,7 +32,7 @@
 
     #challenge-icn {
       color: $orange;
-      font-size: 35px;
+      font-size: 30px;
       transform: rotate(-270deg);
     }
   }

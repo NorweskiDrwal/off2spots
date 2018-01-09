@@ -18,7 +18,9 @@
 
     <div class="main-bg bg circle pin"></div>
     <app-loader v-if="loading"></app-loader>
-    <div class="main circle pin" id="main-circle" style="cursor: pointer;" @click="onRegister" :disabled="loading" :loading="loading"><p class="next-btn-text">n e x t</p></div>
+    <div class="main circle pin" id="main-circle" style="cursor: pointer;" @click="onRegister" :disabled="loading" :loading="loading">
+      <v-btn class="circle pin main-btn next-btn-text" flat light>next</v-btn>
+    </div>
 
   <!-- -->
     <form class="form pin">

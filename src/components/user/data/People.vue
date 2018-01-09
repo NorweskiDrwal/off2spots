@@ -2,7 +2,7 @@
   <v-container>
     <v-dialog width="350px" v-model="dialog" id="people-dialog">
       <v-btn class="pin" id="people-btn" fab flat dark slot="activator">
-        <v-icon id="people-icn">people</v-icon>
+        <v-icon id="people-icn">fa-users</v-icon>
       </v-btn>
       <v-card>
       </v-card>
@@ -32,7 +32,7 @@
 
     #people-icn {
       color: $orange;
-      font-size: 35px;
+      font-size: 30px;
       transform: rotate(-90deg);
     }
   }

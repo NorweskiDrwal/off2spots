@@ -4,7 +4,7 @@
 
     <!-- menu hamburger button -->
       <div id="menu-hamburger" class="circle">
-        <v-btn id="menu-hamburger-btn" class="pin" fab dark flat title="Open menu" @click="onOpenDrawer">
+        <v-btn id="menu-hamburger-btn" class="pin" fab dark flat title="Open menu">
           <v-icon color="white" class="pin" medium>menu</v-icon>
         </v-btn>
       </div>
@@ -56,9 +56,12 @@
 
     <!-- logout -->
       <div id="logout" class="circle">
-        <v-btn id="logout-btn" class="pin" fab flat title="Logout" @click="onLogout">
-          <v-icon color="white" class="pin" medium>power_settings_new</v-icon>
-        </v-btn>
+        <v-tooltip class="pin" right>
+          <v-btn id="logout-btn" class="pin" fab flat @click="onLogout" slot="activator">
+            <v-icon color="white" medium>power_settings_new</v-icon>
+          </v-btn>
+          <span>Logout</span>
+        </v-tooltip>
       </div>
     <!-- end logout -->
 

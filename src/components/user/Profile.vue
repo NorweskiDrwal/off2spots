@@ -3,9 +3,12 @@
 
     <!-- menu hamburger button -->
       <div id="menu-hamburger" class="circle">
-        <v-btn id="menu-hamburger-btn" class="pin" fab dark flat title="Open menu" @click="onOpenDrawer">
-          <v-icon color="white" class="pin" medium>menu</v-icon>
-        </v-btn>
+        <v-tooltip class="pin" right>
+          <v-btn id="menu-hamburger-btn" class="pin" fab flat @click="drawer = !drawer, explode = false" slot="activator">
+            <v-icon color="white" medium>menu</v-icon>
+          </v-btn>
+          <span class="tooltip">Open menu</span>
+        </v-tooltip>
       </div>
     <!-- end menu hamburger button -->
 
@@ -68,16 +71,60 @@
         </div>
       <!-- end challenges -->
 
+      <!-- checks -->
+        <div class="panel-item-axl pin" :class="{ explodePanel: explode }" id="checks-axl">
+          <div class="panel-item circle" @mouseover="btnText = 'check-in'" @mouseout="btnText = ''">
+            <user-checks></user-checks>
+          </div>
+        </div>
+      <!-- end checks -->
+
+      <!-- ranks -->
+        <div class="panel-item-axl pin" :class="{ explodePanel: explode }" id="ranks-axl">
+          <div class="panel-item circle" @mouseover="btnText = 'ranks'" @mouseout="btnText = ''">
+            <user-ranks></user-ranks>
+          </div>
+        </div>
+      <!-- end checks -->
       </div>
     <!-- end profile menu -->
 
     <!-- logout -->
       <div id="logout" class="circle">
-        <v-btn id="logout-btn" class="pin" fab flat title="Logout" @click="onLogout">
-          <v-icon color="white" class="pin" medium>power_settings_new</v-icon>
-        </v-btn>
+        <v-tooltip class="pin" right>
+          <v-btn id="logout-btn" class="pin" fab flat @click="onLogout" slot="activator">
+            <v-icon color="white" medium>power_settings_new</v-icon>
+          </v-btn>
+          <span>Logout</span>
+        </v-tooltip>
       </div>
     <!-- end logout -->
+
+    <v-navigation-drawer temporary v-model="drawer" light id="navigation-drawer">
+      <v-list class="pa-1">
+        <v-list-tile avatar>
+          <v-list-tile-avatar>
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" />
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title>John Leider</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list class="pt-0" dense>
+        <v-divider></v-divider>
+        <v-list-tile v-for="item in items" :key="item.title" @click="">
+          <v-list-tile-action style="text-align: center;">
+            <v-icon class="drawer-item-icn">{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title class="drawer-item-text" >{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+
+    
 
     </div>
   </v-app>
@@ -89,8 +136,20 @@ export default {
   props: ['id'],
   data () {
     return {
+      thisOpen: true,
       btnText: '',
-      explode: false
+      explode: false,
+      drawer: null,
+      items: [
+        { title: 'Spots', icon: 'bubble_chart' },
+        { title: 'People', icon: 'fa-users' },
+        { title: 'Chat', icon: 'fa-comments' },
+        { title: 'Check-ins', icon: 'beenhere' },
+        { title: 'Challenges', icon: 'fa-handshake-o' },
+        { title: 'Trophies', icon: 'fa-shield' },
+        { title: 'Rankings', icon: 'fa-cubes' },
+        { title: 'Settings', icon: 'fa-cogs' }
+      ]
     }
   },
   computed: {

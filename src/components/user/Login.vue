@@ -19,7 +19,9 @@
 
       <div class="main-bg bg circle pin"></div>
       <v-progress-circular class="pin loader" indeterminate :size="171" :width="4" v-if="loading"></v-progress-circular>
-      <div class="main circle pin center" id="main-circle" style="cursor: pointer;" @click="onLogin"><p class="next-btn-text">n e x t</p></div>
+      <div class="main circle pin center" id="main-circle" style="cursor: pointer;" @click="onLogin">
+        <v-btn class="circle pin main-btn next-btn-text" flat light>next</v-btn>
+      </div>
 
     <!-- -->
       <form class="form pin">

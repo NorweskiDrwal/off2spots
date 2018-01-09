@@ -2,7 +2,7 @@
   <v-container>
     <v-dialog width="350px" v-model="dialog" id="badges-dialog">
       <v-btn class="pin" id="badges-btn" fab flat dark slot="activator">
-        <v-icon id="badges-icn">fa-shield </v-icon>
+        <v-icon id="badges-icn">fa-shield</v-icon>
       </v-btn>
       <v-card>
       </v-card>

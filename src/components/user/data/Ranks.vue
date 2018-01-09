@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-dialog width="350px" v-model="dialog" id="settings-dialog">
-      <v-btn class="pin" id="settings-btn" fab flat dark slot="activator">
-        <v-icon id="settings-icn">fa-cogs</v-icon>
+    <v-dialog width="350px" v-model="dialog" id="ranks-dialog">
+      <v-btn class="pin" id="ranks-btn" fab flat dark slot="activator">
+        <v-icon id="ranks-icn">fa-cubes</v-icon>
       </v-btn>
       <v-card>
       </v-card>
@@ -25,15 +25,15 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 
-  #settings-btn {
+  #ranks-btn {
     background: $blue !important;
     height: 50px;
     width: 50px;
 
-    #settings-icn {
+    #ranks-icn {
       color: $orange;
-      font-size: 30px;
-      transform: rotate(-225deg);
+      font-size: 25px;
+      transform: rotate(0deg);
     }
   }
 

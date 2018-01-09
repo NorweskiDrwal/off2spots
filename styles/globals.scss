@@ -23,7 +23,7 @@
   #error-msg {background: #ff6666; border: 0; border-radius: 100px; text-align: center;}
   .loader {color: $red !important;}
   .pin {position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
-
+  .tooltip__content {background: $purple; color: #fff;}
 
   /* 3a. Landing Page, Login and Register layout */
     .main {background: $purple; border: 5px solid $orange; height: 140px; width: 140px;}
@@ -48,7 +48,7 @@
     .login--active {background: $green;}
     .register--active {background: $blue;}
 
-    .next-btn-text {color: #fff; font-size: 33px; line-height: 130px; text-align: center;}
+    .next-btn-text {color: #fff; font-size: 33px; letter-spacing: 10px !important; line-height: 130px; padding-left: 8px; text-align: center;}
     .sign-btn-text {color: #fff; font-size: 17px; letter-spacing: 8px; line-height: 37px;}
 
     form.form {height: 60px; left: -200px; top: -290px; width: 270px;}
@@ -56,27 +56,32 @@
 
   /* 3b. Profile and Setup Profile layout */
 
-    .main-main {background: $purple; border: 5px solid $orange; height: 140px; width: 140px; z-index: 100;}
+    .main-main {background: $purple; border: 5px solid $orange; height: 140px; width: 140px; z-index: 1;}
 
     .explodeBg {background: transparent; transform: scale(1.8); transition: all 0.4s ease; z-index: 0;}
 
     #menu-hamburger, #logout {border: 3px solid $orange; cursor: pointer; height: 45px; position: absolute; width: 45px; transition: all 0.5s ease;}
     #menu-hamburger {background: $purple; left: 10px; top: 10px;}
-    #logout {background: $red; bottom: 10px; left: 10px;}
+    #logout {background: $grey; bottom: 10px; left: 10px; z-index: 20}
     #logout-btn, #menu-hamburger-btn {background: transparent; height: 38px; width: 38px;}
     #logout:hover, #menu-hamburger:hover {transform: scale(1.2); transition: all 0.2s ease;}
 
-    .control-panel {z-index: 10;}
-    .panel-item-axl {height: 1px; width: 1px; transition: all 0.4s ease;}
+    .control-panel {z-index: 5;}
+    .panel-item-axl {height: 0px; width: 0px; transition: all 0.4s ease;}
     .panel-item {background: $orange; height: 60px; left: -57px; position: absolute; top: -57px; width: 60px; z-index: 10; transition: all 0.4s ease, background 0.2s ease;}
     .panel-item:hover {transform: scale(1.1); transition: all 0.2s ease;}
 
+    #ranks-axl {transform: rotate(0deg)}
     #avatar-axl, #spots-axl {transform: rotate(45deg)}
     #people-axl {transform: rotate(90deg)}
     #hobbies-axl, #chat-axl {transform: rotate(135deg)}
     #badges-axl {transform: rotate(180deg)}
     #location-axl, #settings-axl {transform: rotate(225deg)}
     #challenge-axl {transform: rotate(270deg)}
-    #details-axl {transform: rotate(315deg)}
+    #details-axl, #checks-axl {transform: rotate(315deg)}
 
     .explodePanel {height: 90px; width: 90px; transition: all 0.4s ease}
+
+    #navigation-drawer {background: $purple; color: #fff;}
+    .drawer-item-text {color: #fff; font-size: 16px; text-transform: uppercase;}
+    .drawer-item-icn {color: $yellow !important;}
