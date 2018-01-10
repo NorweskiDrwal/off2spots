@@ -34,6 +34,14 @@ export default {
       userAuth: false
     }
   },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
+    },
+    userIsAuthenticated () {
+      return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+    }
+  },
   methods: {
     switchToLog () {
       this.$router.push('/login')

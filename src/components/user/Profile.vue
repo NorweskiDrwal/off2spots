@@ -37,7 +37,7 @@
     </v-navigation-drawer>
 
     <div class="body" @click="explode = false">
-      <div draggable>
+      <div>
         <div class="main-bg bge circle pin" :class="{ explodeBg: explode }"></div>
         <v-progress-circular class="pin loader" indeterminate :size="171" :width="4" v-if="loading"></v-progress-circular>
         <div class="main-main circle pin" id="main-circle">
@@ -124,7 +124,8 @@
       </div>
     <!-- end logout -->
 
-    <app-challenges></app-challenges>
+    <app-challenges v-model="componentChallengeState"></app-challenges>
+    <app-spots v-model="componentSpotsState"></app-spots>
 
 
 
@@ -170,6 +171,7 @@ export default {
     updateComponentState () {
       console.log(this.items)
       this.$store.commit('updateUserComponentChallenge', true)
+      this.$store.commit('updateUserSpotsChallenge', true)
     }
   }
 }

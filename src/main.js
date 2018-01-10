@@ -13,18 +13,19 @@ import Loader from './components/shared/Loader'
 
 import Chat from './components/Chat'
 import Challenges from './components/challenge/Challenges'
+import Spots from './components/menu/Spots'
 
 // user data imports
-import Details from './components/user/data/Details'
-import Location from './components/user/data/Location'
-import Hobbies from './components/user/data/Hobbies'
-import Spots from './components/user/data/Spots'
-import People from './components/user/data/People'
-import Badges from './components/user/data/Badges'
-import Settings from './components/user/data/Settings'
+import UserDetails from './components/user/data/UserDetails'
+import UserLocation from './components/user/data/UserLocation'
+import UserHobbies from './components/user/data/UserHobbies'
+import UserSpots from './components/user/data/UserSpots'
+import UserPeople from './components/user/data/UserPeople'
+import UserBadges from './components/user/data/UserBadges'
+import UserSettings from './components/user/data/UserSettings'
 import UserChallenges from './components/user/data/UserChallenges'
-import Checks from './components/user/data/Checks'
-import Ranks from './components/user/data/Ranks'
+import UserChecks from './components/user/data/UserChecks'
+import UserRanks from './components/user/data/UserRanks'
 
 import '../styles/globals.scss'
 
@@ -37,18 +38,19 @@ Vue.component('app-loader', Loader)
 
 Vue.component('app-chat', Chat)
 Vue.component('app-challenges', Challenges)
+Vue.component('app-spots', Spots)
 
 // user data components
-Vue.component('user-details', Details)
-Vue.component('user-location', Location)
-Vue.component('user-hobbies', Hobbies)
-Vue.component('user-spots', Spots)
-Vue.component('user-people', People)
-Vue.component('user-badges', Badges)
-Vue.component('user-settings', Settings)
+Vue.component('user-details', UserDetails)
+Vue.component('user-location', UserLocation)
+Vue.component('user-hobbies', UserHobbies)
+Vue.component('user-spots', UserSpots)
+Vue.component('user-people', UserPeople)
+Vue.component('user-badges', UserBadges)
+Vue.component('user-settings', UserSettings)
 Vue.component('user-challenges', UserChallenges)
-Vue.component('user-checks', Checks)
-Vue.component('user-ranks', Ranks)
+Vue.component('user-checks', UserChecks)
+Vue.component('user-ranks', UserRanks)
 
 /* eslint-disable no-new */
 new Vue({
