@@ -24,6 +24,8 @@
   .loader {color: $red !important;}
   .pin {position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
   .tooltip__content {background: $purple; color: #fff;}
+  .dialog-wrapper {position: absolute; top: 0; right: 0; bottom: 0; left: 300px; background: pink}
+  .dialog--fullscreen > .card {margin-left: 300px !important; min-width: auto}
 
   /* 3a. Landing Page, Login and Register layout */
     .main {background: $purple; border: 5px solid $orange; height: 140px; width: 140px;}
@@ -82,6 +84,19 @@
 
     .explodePanel {height: 90px; width: 90px; transition: all 0.4s ease}
 
-    #navigation-drawer {background: $purple; color: #fff;}
+    #navigation-drawer {background: $purple; color: #fff; z-index: 220}
     .drawer-item-text {color: #fff; font-size: 16px; text-transform: uppercase;}
     .drawer-item-icn {color: $yellow !important;}
+
+
+.dialog-toolbar {
+  background: $purple !important;
+  height: 65px !important;
+  box-shadow: none;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.dialog--fullscreen {
+
+}

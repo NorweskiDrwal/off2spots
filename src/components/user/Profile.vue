@@ -100,7 +100,9 @@
       </div>
     <!-- end logout -->
 
-    <v-navigation-drawer temporary v-model="drawer" light id="navigation-drawer">
+    <app-challenges></app-challenges>
+
+    <v-navigation-drawer temporary v-model="drawer" light id="navigation-drawer" :stateless="componentChallengeState">
       <v-list class="pa-1">
         <v-list-tile avatar>
           <v-list-tile-avatar>
@@ -113,18 +115,16 @@
       </v-list>
       <v-list class="pt-0" dense>
         <v-divider></v-divider>
-        <v-list-tile v-for="item in items" :key="item.title" @click="">
+        <v-list-tile v-for="item in items" :key="item.title" @click="updateComponentState">
           <v-list-tile-action style="text-align: center;">
             <v-icon class="drawer-item-icn">{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title class="drawer-item-text" >{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title class="drawer-item-text"> {{ item.title }} </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-
-    
 
     </div>
   </v-app>
@@ -154,7 +154,8 @@ export default {
   },
   computed: {
     loading () { return this.$store.getters.loading },
-    userData () { return this.$store.getters.loadedUserData(this.id) }
+    userData () { return this.$store.getters.loadedUserData(this.id) },
+    componentChallengeState () { return this.$store.state.userComponentChallenge }
   },
   methods: {
     onLogout () {
@@ -164,7 +165,10 @@ export default {
     toSetup () {
       this.$router.push('/profile/setup')
     },
-    onOpenDrawer () {}
+    updateComponentState () {
+      console.log(this.items)
+      this.$store.commit('updateUserComponentChallenge', true)
+    }
   }
 }
 </script>

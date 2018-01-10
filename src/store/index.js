@@ -21,14 +21,16 @@ export const store = new Vuex.Store({
         distance: '',
         hobbies: ''
       }
-    ]
+    ],
+    userComponentChallenge: ''
   },
   mutations: {
     setUser (state, payload) { state.user = payload },
     setLoading (state, payload) { state.loading = payload },
     setError (state, payload) { state.error = payload },
     clearError (state) { state.error = null },
-    addUserDetails (state, payload) { state.loadedUserData.push(payload) }
+    addUserDetails (state, payload) { state.loadedUserData.push(payload) },
+    updateUserComponentChallenge (state, payload) { state.userComponentChallenge = payload }
   },
   actions: {
   // register user with firebase
