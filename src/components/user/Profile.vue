@@ -12,6 +12,30 @@
       </div>
     <!-- end menu hamburger button -->
 
+    <v-navigation-drawer temporary v-model="drawer" light id="navigation-drawer" :stateless="componentChallengeState">
+      <v-list class="pa-1">
+        <v-list-tile avatar>
+          <v-list-tile-avatar>
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" />
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title>John Leider</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list class="pt-0" dense>
+        <v-divider></v-divider>
+        <v-list-tile v-for="item in items" :key="item.title" @click="updateComponentState">
+          <v-list-tile-action style="text-align: center;">
+            <v-icon class="drawer-item-icn">{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title class="drawer-item-text"> {{ item.title }} </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+
     <div class="body" @click="explode = false">
       <div draggable>
         <div class="main-bg bge circle pin" :class="{ explodeBg: explode }"></div>
@@ -102,29 +126,7 @@
 
     <app-challenges></app-challenges>
 
-    <v-navigation-drawer temporary v-model="drawer" light id="navigation-drawer" :stateless="componentChallengeState">
-      <v-list class="pa-1">
-        <v-list-tile avatar>
-          <v-list-tile-avatar>
-            <img src="https://randomuser.me/api/portraits/men/85.jpg" />
-          </v-list-tile-avatar>
-          <v-list-tile-content>
-            <v-list-tile-title>John Leider</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-      <v-list class="pt-0" dense>
-        <v-divider></v-divider>
-        <v-list-tile v-for="item in items" :key="item.title" @click="updateComponentState">
-          <v-list-tile-action style="text-align: center;">
-            <v-icon class="drawer-item-icn">{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title class="drawer-item-text"> {{ item.title }} </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+
 
     </div>
   </v-app>
